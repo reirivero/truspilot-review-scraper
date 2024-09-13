@@ -1,5 +1,4 @@
 # trustpilot-review-scraper
-***
 
 ## Dependencias
 Las dependencias del proyecto están listadas en el archivo requirements.txt:
