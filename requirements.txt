@@ -11,6 +11,8 @@ pydantic
 pandas
 numpy
 jupyter
+matplotlib
+
 
 # Carga de datos
 #google-cloud-bigquery
@@ -35,6 +37,8 @@ pylint
 python-dotenv
 
 # AI analysis
-matplotlib
 wordcloud
 textblob
+scikit-learn
+gensim
+nltk
