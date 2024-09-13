@@ -1,0 +1,16 @@
+paths:
+  bywinona: 
+    output_path: './data/bywinona_reviews.csv'
+  joinmidi: 
+    output_path: './data/joinmidi_reviews.csv'
+  log_file: './logs/etl_data.log'
+
+logging:
+  level: 'ERROR'
+  format: '%(asctime)s:%(levelname)s:%(message)s'
+
+truspilot:
+  bywinona:
+    url: 'https://ie.trustpilot.com/review/bywinona.com'
+  joinmidi:
+    url: 'https://www.trustpilot.com/review/joinmidi.com'
