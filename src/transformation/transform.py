@@ -1,7 +1,13 @@
+"""
+This module contains functions to transform review data.
+
+Functions:
+- transform_review: Transforms a review element into a dictionary with relevant information.
+"""
+
 from datetime import datetime 
 import logging
 from src.utils.config import load_config
-# from src.utils.decorators import get_time
 
 
 config = load_config()
@@ -9,8 +15,20 @@ logging.basicConfig(filename=config['paths']['log_file'],
                     level=config['logging']['level'], 
                     format=config['logging']['format'])
 
-# @get_time
 def transform_review(review):
+    """
+    Transforms a review element into a dictionary with relevant information.
+
+    Parameters
+    ----------
+    review: BeautifulSoup object
+        The BeautifulSoup object containing the review HTML element.
+    
+    Returns
+    -------
+    dict
+        A dictionary containing the transformed review data. Returns an empty dictionary if an error occurs.
+    """
     try:
         aside = review.find('aside')
         info_by = aside.get('aria-label')
@@ -28,7 +46,6 @@ def transform_review(review):
         paragraph = review.find('p', class_='typography_body-l__KUYFJ')
         paragraph_text = paragraph.text.strip() if paragraph else None
         date_of_experience = review.find('p', class_='typography_body-m__xgxZ_').text.strip().split(': ')[1]
-        # time_posted = review.find('time').text.strip() if review.find('time') else None 
         datetime_posted = review.find('time').get('datetime')
 
         rated_img = review.find('div', class_='star-rating_starRating__4rrcf star-rating_medium__iN6Ty').find('img') # type: ignore
